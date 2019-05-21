@@ -1,0 +1,63 @@
+{
+  "name": "schema-util-loader",
+  "version": "1.0.0-beta",
+  "description": "schema-util webpack loader",
+  "main": "dist/index.js",
+  "module": "./dist",
+  "files": [
+    "dist/**/*.{js,d.ts}",
+    "index.js"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "precommit": "npm run lint-staged",
+    "lint-staged": "lint-staged",
+    "clean": "rimraf ./dist",
+    "build": "tsc",
+    "ci": "npm run lint && npm run test",
+    "test": "TEST=1 mocha -r ts-node/register test/*.test.ts test/**/*.test.ts",
+    "lint": "tslint --project ./tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ycjcl868/schema-util-loader.git"
+  },
+  "keywords": [
+    "git",
+    "gitinfo"
+  ],
+  "author": "ycjcl868",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ycjcl868/schema-util-loader/issues"
+  },
+  "lint-staged": {
+    "linters": {
+      "src/**/*.ts": "npm run lint"
+    },
+    "ignore": [
+      "src/typings/**.ts"
+    ]
+  },
+  "homepage": "https://github.com/ycjcl868/schema-util-loader",
+  "devDependencies": {
+    "@types/loader-utils": "^1.1.3",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "@types/webpack": "^4.4.31",
+    "debug": "^4.1.0",
+    "lint-staged": "^8.0.4",
+    "mocha": "^4.1.0",
+    "rimraf": "^2.6.2",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.2"
+  },
+  "engines": {
+    "node": ">= 4.0"
+  },
+  "dependencies": {
+    "loader-utils": "^1.2.3",
+    "schema-util": "^3.4.2"
+  }
+}
